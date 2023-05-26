@@ -5,10 +5,35 @@
     android:layout_height="match_parent"
     tools:context=".PantallaDosFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:text="PANTALLA DOS"/>
+
+        <Button
+            android:id="@+id/btnPantallaUno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ir a pantalla 1"/>
+
+        <Button
+            android:id="@+id/btnPantallaTres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Ir a pantalla 3"/>
+
+
+    </LinearLayout>
 
 </FrameLayout>
