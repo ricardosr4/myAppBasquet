@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/pantallaUnoFragment"
-        android:name="com.example.myappbasquet.PantallaUnoFragment"
+        android:name="com.example.myappbasquet.ui.fragment.PantallaUnoFragment"
         android:label="fragment_pantalla_uno"
         tools:layout="@layout/fragment_pantalla_uno" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/pantallaDosFragment"
-        android:name="com.example.myappbasquet.PantallaDosFragment"
+        android:name="com.example.myappbasquet.ui.fragment.PantallaDosFragment"
         android:label="fragment_pantalla_dos"
         tools:layout="@layout/fragment_pantalla_dos" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/pantallaTresFragment"
-        android:name="com.example.myappbasquet.PantallaTresFragment"
+        android:name="com.example.myappbasquet.ui.fragment.PantallaTresFragment"
         android:label="fragment_pantalla_tres"
         tools:layout="@layout/fragment_pantalla_tres" >
         <action
