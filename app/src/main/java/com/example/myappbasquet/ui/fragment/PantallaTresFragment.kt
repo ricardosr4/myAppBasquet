@@ -1,11 +1,10 @@
-package com.example.myappbasquet
+package com.example.myappbasquet.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.myappbasquet.R
 
 
 class PantallaTresFragment : Fragment(R.layout.fragment_pantalla_tres) {

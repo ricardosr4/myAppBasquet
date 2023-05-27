@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "371292596851",
+    "project_id": "myappbasquet",
+    "storage_bucket": "myappbasquet.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371292596851:android:80dc5015d4409fba849806",
+        "android_client_info": {
+          "package_name": "com.example.myappbasquet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ6b253-uuppAgJYc-nhahw5nLQnTkiVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
