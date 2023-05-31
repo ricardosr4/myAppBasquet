@@ -13,8 +13,13 @@
         android:theme="@style/Theme.MyAppBasquet"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.MenuActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ui.activity.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.ApiSplashScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

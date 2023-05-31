@@ -56,4 +56,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
 
+    //splash
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+
+
+
 }
