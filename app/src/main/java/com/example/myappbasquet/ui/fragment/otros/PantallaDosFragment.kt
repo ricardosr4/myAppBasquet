@@ -1,4 +1,4 @@
-package com.example.myappbasquet.ui.fragment
+package com.example.myappbasquet.ui.fragment.otros
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,10 +16,10 @@ class PantallaDosFragment : Fragment(R.layout.fragment_pantalla_dos) {
         val btnIrUno = requireView().findViewById<Button>(R.id.btnPantallaUno)
 
         btnIrTres.setOnClickListener {
-            findNavController().navigate(R.id.action_pantallaDosFragment_to_pantallaTresFragment)
+          //  findNavController().navigate(R.id.action_pantallaDosFragment_to_pantallaTresFragment)
         }
         btnIrUno.setOnClickListener {
-            findNavController().navigate(R.id.action_pantallaDosFragment_to_pantallaUnoFragment)
+           // findNavController().navigate(R.id.action_pantallaDosFragment_to_pantallaUnoFragment)
         }
     }
 }
