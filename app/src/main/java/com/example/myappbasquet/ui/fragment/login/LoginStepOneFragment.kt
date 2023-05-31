@@ -1,18 +1,16 @@
-package com.example.myappbasquet.ui.fragment
+package com.example.myappbasquet.ui.fragment.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.myappbasquet.R
+import android.widget.Toast
 import com.example.myappbasquet.databinding.FragmentLoginStepOneBinding
 
 
 class LoginStepOneFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
     lateinit var binding: FragmentLoginStepOneBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +27,19 @@ class LoginStepOneFragment : Fragment() {
         return  binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttongoogle.setOnClickListener {
+            Toast.makeText(context, "Redireccion a login google ", Toast.LENGTH_SHORT).show()
+        }
+        binding.buttonemail.setOnClickListener {
+            Toast.makeText(context, "Redireccion a registro email ", Toast.LENGTH_SHORT).show()
+        }
+        binding.txtbuttonlogin.setOnClickListener {
+            Toast.makeText(context, "Redireccion a tengo cuenta ", Toast.LENGTH_SHORT).show()
+        }
+
+    }
     companion object {
         // TODO: Rename and change types and number of parameters
         @JvmStatic

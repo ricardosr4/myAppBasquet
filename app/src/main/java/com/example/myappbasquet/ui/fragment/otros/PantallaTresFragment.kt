@@ -1,4 +1,4 @@
-package com.example.myappbasquet.ui.fragment
+package com.example.myappbasquet.ui.fragment.otros
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,7 +14,7 @@ class PantallaTresFragment : Fragment(R.layout.fragment_pantalla_tres) {
         val btnIrUno = requireView().findViewById<android.widget.Button>(R.id.btnPantallaUno)
 
         btnIrUno.setOnClickListener {
-            findNavController().navigate(R.id.action_pantallaTresFragment_to_pantallaUnoFragment)
+          //  findNavController().navigate(R.id.action_pantallaTresFragment_to_pantallaUnoFragment)
         }
 
     }

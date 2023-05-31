@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 import com.example.myappbasquet.R
-import com.example.myappbasquet.ui.fragment.PantallaUnoFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
