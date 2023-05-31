@@ -9,7 +9,7 @@
 
     <style name="Theme.ApiSplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/blue</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_basquetball</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.MyAppBasquet</item>
 
