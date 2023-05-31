@@ -6,4 +6,12 @@
     </style>
 
     <style name="Theme.MyAppBasquet" parent="Base.Theme.MyAppBasquet" />
+
+    <style name="Theme.ApiSplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/purple</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_basquetball</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.MyAppBasquet</item>
+
+    </style>
 </resources>
