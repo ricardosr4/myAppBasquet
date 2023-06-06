@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentLoginStepOneBinding
 
 
@@ -33,7 +35,7 @@ class LoginStepOneFragment : Fragment() {
             Toast.makeText(context, "Redireccion a login google ", Toast.LENGTH_SHORT).show()
         }
         binding.buttonemail.setOnClickListener {
-            Toast.makeText(context, "Redireccion a registro email ", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_loginStepOneFragment_to_loginRegisterFragment)
         }
         binding.txtbuttonlogin.setOnClickListener {
             Toast.makeText(context, "Redireccion a tengo cuenta ", Toast.LENGTH_SHORT).show()

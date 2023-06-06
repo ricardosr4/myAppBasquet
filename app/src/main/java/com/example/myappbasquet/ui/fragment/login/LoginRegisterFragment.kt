@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentLoginRegisterBinding
 
@@ -27,6 +29,21 @@ class LoginRegisterFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentLoginRegisterBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.ivback.setOnClickListener {
+            findNavController().navigate(R.id.action_loginRegisterFragment_to_loginStepOneFragment)
+        }
+        binding.tvLogin.setOnClickListener {
+            Toast.makeText(context, "Redireccion a tengo cuenta ", Toast.LENGTH_SHORT).show()
+        }
+        binding.btnRegister.setOnClickListener {
+            Toast.makeText(context, "Redireccion a registro ", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     companion object {

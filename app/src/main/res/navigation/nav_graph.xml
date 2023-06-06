@@ -8,5 +8,18 @@
         android:id="@+id/loginStepOneFragment"
         android:name="com.example.myappbasquet.ui.fragment.login.LoginStepOneFragment"
         android:label="fragment_login_step_one"
-        tools:layout="@layout/fragment_login_step_one" />
+        tools:layout="@layout/fragment_login_step_one" >
+        <action
+            android:id="@+id/action_loginStepOneFragment_to_loginRegisterFragment"
+            app:destination="@id/loginRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginRegisterFragment"
+        android:name="com.example.myappbasquet.ui.fragment.login.LoginRegisterFragment"
+        android:label="fragment_login_register"
+        tools:layout="@layout/fragment_login_register" >
+        <action
+            android:id="@+id/action_loginRegisterFragment_to_loginStepOneFragment"
+            app:destination="@id/loginStepOneFragment" />
+    </fragment>
 </navigation>
