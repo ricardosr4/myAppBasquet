@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentLoginStartBinding
 
@@ -29,6 +30,16 @@ class LoginStartFragment : Fragment() {
         binding = FragmentLoginStartBinding.inflate(inflater, container, false)
         return binding.root
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.ivback.setOnClickListener {
+            findNavController().navigate(R.id.action_loginStartFragment2_to_loginStepOneFragment)
+        }
+        binding.tvForgotPassword.setOnClickListener {
+            findNavController().navigate(R.id.action_loginStartFragment2_to_forgotPasswordFragment)
+        }
     }
 
     companion object {
