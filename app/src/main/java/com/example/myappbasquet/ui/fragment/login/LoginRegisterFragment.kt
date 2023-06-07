@@ -8,16 +8,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
-import com.example.myappbasquet.databinding.FragmentLoginStepOneBinding
+import com.example.myappbasquet.databinding.FragmentLoginRegisterBinding
 
 
-class LoginStepOneFragment : Fragment() {
+class LoginRegisterFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    lateinit var binding: FragmentLoginStepOneBinding
+    lateinit var binding: FragmentLoginRegisterBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {}
+        arguments?.let {
+
+        }
     }
 
     override fun onCreateView(
@@ -25,29 +27,34 @@ class LoginStepOneFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentLoginStepOneBinding.inflate(inflater, container, false)
-        return  binding.root
+        binding = FragmentLoginRegisterBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.buttongoogle.setOnClickListener {
-            Toast.makeText(context, "Redireccion a login google ", Toast.LENGTH_SHORT).show()
+
+        binding.ivback.setOnClickListener {
+            findNavController().navigate(R.id.action_loginRegisterFragment_to_loginStepOneFragment)
         }
-        binding.buttonemail.setOnClickListener {
-            findNavController().navigate(R.id.action_loginStepOneFragment_to_loginRegisterFragment)
+        binding.tvLogin.setOnClickListener {
+            findNavController().navigate(R.id.ir_login)
         }
-        binding.txtbuttonlogin.setOnClickListener {
-           findNavController().navigate(R.id.action_loginStepOneFragment_to_loginStartFragment2)
+        binding.btnRegister.setOnClickListener {
+            Toast.makeText(context, "Redireccion a registro ", Toast.LENGTH_SHORT).show()
         }
 
     }
+
     companion object {
+
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            LoginStepOneFragment().apply {
-                arguments = Bundle().apply {}
+            LoginRegisterFragment().apply {
+                arguments = Bundle().apply {
+
+                }
             }
     }
 }

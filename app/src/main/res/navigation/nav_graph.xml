@@ -8,5 +8,48 @@
         android:id="@+id/loginStepOneFragment"
         android:name="com.example.myappbasquet.ui.fragment.login.LoginStepOneFragment"
         android:label="fragment_login_step_one"
-        tools:layout="@layout/fragment_login_step_one" />
+        tools:layout="@layout/fragment_login_step_one" >
+        <action
+            android:id="@+id/action_loginStepOneFragment_to_loginRegisterFragment"
+            app:destination="@id/loginRegisterFragment" />
+        <action
+            android:id="@+id/action_loginStepOneFragment_to_loginStartFragment2"
+            app:destination="@id/loginStartFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginRegisterFragment"
+        android:name="com.example.myappbasquet.ui.fragment.login.LoginRegisterFragment"
+        android:label="fragment_login_register"
+        tools:layout="@layout/fragment_login_register" >
+        <action
+            android:id="@+id/action_loginRegisterFragment_to_loginStepOneFragment"
+            app:destination="@id/loginStepOneFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.example.myappbasquet.ui.fragment.login.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginStartFragment2"
+            app:destination="@id/loginStartFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginStartFragment2"
+        android:name="com.example.myappbasquet.ui.fragment.login.LoginStartFragment"
+        android:label="fragment_login_start"
+        tools:layout="@layout/fragment_login_start" >
+        <action
+            android:id="@+id/action_loginStartFragment2_to_loginStepOneFragment"
+            app:destination="@id/loginStepOneFragment" />
+        <action
+            android:id="@+id/action_loginStartFragment2_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+    <action
+        android:id="@+id/ir_login"
+        app:destination="@id/loginStartFragment2" />
+    <action
+        android:id="@+id/ir_registrar"
+        app:destination="@id/loginRegisterFragment" />
 </navigation>

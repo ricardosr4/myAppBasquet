@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">MyAppBasquet</string>
 
+    <string name="login_titulo">Login</string>
+    <string name="instrucciones_login">Inicie sesión ahora para realizar un seguimiento de todos los partidos que se encuentran auditados!</string>
+    <string name="email_text">Email</string>
+    <string name="ingresa_tu_email">Ingresa tu Email</string>
+    <string name="password">Password</string>
+    <string name="ingresa_tu_pasword">Ingresa tu Pasword</string>
+    <string name="has_olvidado_tu_contrase_a">Has olvidado tu Contraseña ?</string>
+    <string name="ingresar">INGRESAR</string>
+    <string name="continua_con_google">Continua con Google</string>
+    <string name="no_tengo_una_cuenta">No tengo una Cuenta ?</string>
+    <string name="registrar">Registrar</string>
+    <string name="txt_registrar_instrucciones">¡Cree una cuenta para acceder a todas los partidos de la aplicación Basquet!</string>
+    <string name="ingresa_tu_nombre">Ingresa tu Nombre</string>
+
 </resources>
