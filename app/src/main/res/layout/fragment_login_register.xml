@@ -41,7 +41,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="sans-serif"
-        android:text="¡Cree una cuenta para acceder a todas las funciones de la aplicación Basquet!"
+        android:text="@string/txt_registrar_instrucciones"
         android:textSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="45dp"
-        android:text="Email"
+        android:text="@string/email_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +77,7 @@
         android:layout_marginEnd="45dp"
         android:ellipsize="end"
         android:maxLines="0"
-        android:hint="Ingresa tu Email"
+        android:hint="@string/ingresa_tu_email"
         android:inputType="textPersonName"
         android:singleLine="true"
         app:boxBackgroundMode="outline"
@@ -88,12 +88,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
-        app:startIconDrawable="@drawable/ic_arroba">
+        app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:inputType="textEmailAddress"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+           />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,7 +115,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        android:hint="Ingresa tu Nombre"
+        android:hint="@string/ingresa_tu_nombre"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -149,7 +150,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        android:hint="Ingresa tu Password"
+        android:hint="@string/ingresa_tu_pasword"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
@@ -181,9 +182,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="45dp"
         android:layout_marginTop="4dp"
-        android:text="Registrar"
+        android:text="REGISTRAR"
         android:backgroundTint="@color/blue"
-        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"

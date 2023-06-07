@@ -40,6 +40,9 @@ class LoginStartFragment : Fragment() {
         binding.tvForgotPassword.setOnClickListener {
             findNavController().navigate(R.id.action_loginStartFragment2_to_forgotPasswordFragment)
         }
+        binding.irRegistrar.setOnClickListener {
+            findNavController().navigate(R.id.ir_registrar)
+        }
     }
 
     companion object {

@@ -10,14 +10,11 @@
 
     <ImageView
         android:id="@+id/ivback"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="35dp"
-        android:layout_marginEnd="340dp"
         android:src="@drawable/ic_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,9 +25,10 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="45dp"
-        android:text="Acceso"
+        android:text="@string/login_titulo"
         android:textColor="@color/blue"
-        android:textSize="40dp"
+        android:textSize="35dp"
+        android:fontFamily="sans-serif"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +40,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        android:text="Inicie sesión ahora para realizar un seguimiento de todos sus gastos e ingresos en un solo lugar!"
-        android:textSize="18dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/instrucciones_login"
+        android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleAcceso" />
@@ -55,8 +54,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="45dp"
-        android:text="Email"
-        android:textSize="20dp"
+        android:text="@string/email_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInstrucciones" />
@@ -67,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        android:hint="Ingresa tu Email"
+        android:hint="@string/ingresa_tu_email"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
@@ -75,11 +73,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewEmail"
-        app:startIconDrawable="@drawable/ic_arroba">
+        app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+           />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,8 +89,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="45dp"
-        android:text="Password"
-        android:textSize="20dp"
+        android:text="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textFieldEmail" />
@@ -102,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
         android:layout_marginEnd="45dp"
-        android:hint="Ingresa tu Pasword"
+        android:hint="@string/ingresa_tu_pasword"
         app:boxCornerRadiusBottomEnd="8dp"
         app:boxCornerRadiusBottomStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
@@ -126,7 +124,8 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="45dp"
-        android:text="Has olvidado tu Contraseña ?"
+        android:textSize="14dp"
+        android:text="@string/has_olvidado_tu_contrase_a"
         android:textColor="@color/blue"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,8 +140,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="45dp"
         android:backgroundTint="@color/blue"
-        android:text="Acceso"
-        android:textSize="25dp"
+        android:text="@string/ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
@@ -155,7 +153,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="45dp"
-        android:text="Continua con Google"
+        android:text="@string/continua_con_google"
         app:icon="@drawable/ic_google_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -165,25 +163,22 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="16dp"
-        android:text="No tengo una Cuenta ?"
-        android:textSize="18dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        android:text="@string/no_tengo_una_cuenta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttongoogle" />
 
     <TextView
+        android:id="@+id/ir_registrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="65dp"
-        android:text="Registrar"
+        android:text="@string/registrar"
         android:textColor="@color/blue"
-        android:textSize="18dp"
         android:textStyle="bold"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView3"

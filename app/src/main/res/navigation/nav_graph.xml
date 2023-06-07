@@ -46,4 +46,10 @@
             android:id="@+id/action_loginStartFragment2_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
     </fragment>
+    <action
+        android:id="@+id/ir_login"
+        app:destination="@id/loginStartFragment2" />
+    <action
+        android:id="@+id/ir_registrar"
+        app:destination="@id/loginRegisterFragment" />
 </navigation>

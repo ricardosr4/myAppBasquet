@@ -32,7 +32,7 @@ class ForgotPasswordFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backForgotPassword.setOnClickListener {
+        binding.ivback.setOnClickListener {
             findNavController().navigate(R.id.action_forgotPasswordFragment_to_loginStartFragment2)
         }
     }

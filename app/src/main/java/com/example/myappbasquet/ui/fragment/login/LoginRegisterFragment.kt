@@ -38,7 +38,7 @@ class LoginRegisterFragment : Fragment() {
             findNavController().navigate(R.id.action_loginRegisterFragment_to_loginStepOneFragment)
         }
         binding.tvLogin.setOnClickListener {
-            Toast.makeText(context, "Redireccion a tengo cuenta ", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.ir_login)
         }
         binding.btnRegister.setOnClickListener {
             Toast.makeText(context, "Redireccion a registro ", Toast.LENGTH_SHORT).show()
