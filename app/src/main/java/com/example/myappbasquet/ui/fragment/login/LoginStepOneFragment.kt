@@ -32,7 +32,7 @@ class LoginStepOneFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttongoogle.setOnClickListener {
-            Toast.makeText(context, "Redireccion a login google ", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_loginStepOneFragment_to_fragmentHome)
         }
         binding.buttonemail.setOnClickListener {
             findNavController().navigate(R.id.action_loginStepOneFragment_to_loginRegisterFragment)
