@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MyAppBasquet</string>
 
+    <string name="default_web_client_id">TU_ID_DE_CLIENTE_WEB</string>
+
+
     <string name="login_titulo">Login</string>
     <string name="instrucciones_login">Inicie sesión ahora para realizar un seguimiento de todos los partidos que se encuentran auditados!</string>
     <string name="email_text">Email</string>
