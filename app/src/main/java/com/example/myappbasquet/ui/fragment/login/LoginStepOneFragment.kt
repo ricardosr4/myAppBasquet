@@ -51,7 +51,7 @@ class LoginStepOneFragment : Fragment() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account?.idToken)
             } catch (e: ApiException) {
-                // Manejar el error de inicio de sesión de Google
+                Toast.makeText(requireContext(), "error$e",Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -61,9 +61,7 @@ class LoginStepOneFragment : Fragment() {
         FirebaseAuth.getInstance().signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    binding.buttongoogle.setOnClickListener {
                         findNavController().navigate(R.id.action_loginStepOneFragment_to_fragmentHome)
-                    }
                 } else {
                     Toast.makeText(requireContext(), "error",Toast.LENGTH_SHORT).show()
                     // Manejar el error de inicio de sesión con Google
@@ -84,7 +82,7 @@ class LoginStepOneFragment : Fragment() {
         }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.continua_con_google))
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
 
