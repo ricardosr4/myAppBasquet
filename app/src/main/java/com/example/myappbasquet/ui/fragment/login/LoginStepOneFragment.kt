@@ -19,35 +19,28 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 
 class LoginStepOneFragment : Fragment() {
+    // TODO: Rename and change types of parameters
     private lateinit var binding: FragmentLoginStepOneBinding
     private lateinit var googleSignInClient: GoogleSignInClient
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {}
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
+        // Inflate the layout for this fragment
         binding = FragmentLoginStepOneBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-
-        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
-
-        binding.buttongoogle.setOnClickListener {
-            signInWithGoogle()
-        }
+        return  binding.root
     }
 
     private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, 123)
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -58,11 +51,7 @@ class LoginStepOneFragment : Fragment() {
                 val account = task.getResult(ApiException::class.java)
                 firebaseAuthWithGoogle(account?.idToken)
             } catch (e: ApiException) {
-                Toast.makeText(
-                    requireContext(),
-                    "Error al iniciar sesión con Google",
-                    Toast.LENGTH_SHORT
-                ).show()
+                // Manejar el error de inicio de sesión de Google
             }
         }
     }
@@ -72,19 +61,46 @@ class LoginStepOneFragment : Fragment() {
         FirebaseAuth.getInstance().signInWithCredential(credential)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // El inicio de sesión con Google fue exitoso
-                    Toast.makeText(
-                        requireContext(),
-                        "Inicio de sesión con Google exitoso",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    binding.buttongoogle.setOnClickListener {
+                        findNavController().navigate(R.id.action_loginStepOneFragment_to_fragmentHome)
+                    }
                 } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Error al iniciar sesión con Google",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(requireContext(), "error",Toast.LENGTH_SHORT).show()
+                    // Manejar el error de inicio de sesión con Google
                 }
+            }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.buttongoogle.setOnClickListener {
+            findNavController().navigate(R.id.action_loginStepOneFragment_to_fragmentHome)
+        }
+        binding.buttonemail.setOnClickListener {
+            findNavController().navigate(R.id.action_loginStepOneFragment_to_loginRegisterFragment)
+        }
+        binding.txtbuttonlogin.setOnClickListener {
+           findNavController().navigate(R.id.action_loginStepOneFragment_to_loginStartFragment2)
+        }
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.continua_con_google))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+
+        binding.buttongoogle.setOnClickListener {
+            signInWithGoogle()
+        }
+
+    }
+    companion object {
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            LoginStepOneFragment().apply {
+                arguments = Bundle().apply {}
             }
     }
 }
