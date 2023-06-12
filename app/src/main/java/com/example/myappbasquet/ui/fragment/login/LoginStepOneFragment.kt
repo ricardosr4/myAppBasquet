@@ -1,5 +1,6 @@
 package com.example.myappbasquet.ui.fragment.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,11 +10,18 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentLoginStepOneBinding
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 
 
 class LoginStepOneFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    lateinit var binding: FragmentLoginStepOneBinding
+    private lateinit var binding: FragmentLoginStepOneBinding
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +37,38 @@ class LoginStepOneFragment : Fragment() {
         return  binding.root
     }
 
+    private fun signInWithGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, 123)
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 123) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                firebaseAuthWithGoogle(account?.idToken)
+            } catch (e: ApiException) {
+                Toast.makeText(requireContext(), "error$e",Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String?) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                        findNavController().navigate(R.id.action_loginStepOneFragment_to_fragmentHome)
+                } else {
+                    Toast.makeText(requireContext(), "error",Toast.LENGTH_SHORT).show()
+                    // Manejar el error de inicio de sesión con Google
+                }
+            }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttongoogle.setOnClickListener {
@@ -39,6 +79,17 @@ class LoginStepOneFragment : Fragment() {
         }
         binding.txtbuttonlogin.setOnClickListener {
            findNavController().navigate(R.id.action_loginStepOneFragment_to_loginStartFragment2)
+        }
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+
+        binding.buttongoogle.setOnClickListener {
+            signInWithGoogle()
         }
 
     }
