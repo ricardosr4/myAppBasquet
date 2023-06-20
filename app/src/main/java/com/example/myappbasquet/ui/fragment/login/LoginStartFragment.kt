@@ -49,8 +49,14 @@ class LoginStartFragment : Fragment() {
         }
 
         binding.btnAcceso.setOnClickListener {
+            //  todo esto esta mal aqui debe de ir despues de que se registre y se valide el correo y contraseña
+            // todo ejemplo deberia de estar dentro de la funcion registeruser despues de recibir el task.issuccessful en vez de tener el toast debe de estar el fin navControler
+            //  todo de la manera que tienes esto que causa que te envie al login antes de registrar al usuario si presionas el boton registrar sin llenar los campos te manda igual al login jajaj
+
             findNavController().navigate(R.id.action_loginStartFragment2_to_fragmentHome)
 
+            // todo estos campos podrian ir directamente en el if asi mira
+            // todo  if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty()) , asi evitas 2 lineas de codigo que no son necesarias y se ve mas limpio y es lo mismo
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
