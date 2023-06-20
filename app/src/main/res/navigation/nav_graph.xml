@@ -27,6 +27,12 @@
         <action
             android:id="@+id/action_loginRegisterFragment_to_loginStepOneFragment"
             app:destination="@id/loginStepOneFragment" />
+        <action
+            android:id="@+id/action_loginRegisterFragment_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_loginRegisterFragment_to_loginStartFragment2"
+            app:destination="@id/loginStartFragment2" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -48,6 +54,15 @@
         <action
             android:id="@+id/action_loginStartFragment2_to_forgotPasswordFragment"
             app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginStartFragment2_to_fragmentHome"
+            app:destination="@id/fragmentHome" />
+        <action
+            android:id="@+id/action_loginStartFragment2_to_loginRegisterFragment"
+            app:destination="@id/loginRegisterFragment" />
+        <action
+            android:id="@+id/action_loginStartFragment2_to_loginRegisterFragment2"
+            app:destination="@id/loginRegisterFragment" />
     </fragment>
     <action
         android:id="@+id/ir_login"
