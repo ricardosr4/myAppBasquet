@@ -6,12 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.core.util.PatternsCompat
 import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentLoginStartBinding
 import com.google.firebase.auth.FirebaseAuth
-import java.util.regex.Pattern
 
 
 class LoginStartFragment : Fragment() {
@@ -49,19 +47,9 @@ class LoginStartFragment : Fragment() {
         }
 
         binding.btnAcceso.setOnClickListener {
-            //  todo esto esta mal aqui debe de ir despues de que se registre y se valide el correo y contraseña
-            // todo ejemplo deberia de estar dentro de la funcion registeruser despues de recibir el task.issuccessful en vez de tener el toast debe de estar el fin navControler
-            //  todo de la manera que tienes esto que causa que te envie al login antes de registrar al usuario si presionas el boton registrar sin llenar los campos te manda igual al login jajaj
 
-            findNavController().navigate(R.id.action_loginStartFragment2_to_fragmentHome)
-
-            // todo estos campos podrian ir directamente en el if asi mira
-            // todo  if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty()) , asi evitas 2 lineas de codigo que no son necesarias y se ve mas limpio y es lo mismo
-            val email = binding.etEmail.text.toString()
-            val password = binding.etPassword.text.toString()
-
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                registerUser(email, password)
+            if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty()) {
+                singInUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
             } else {
                 Toast.makeText(context, "por favor complete todos los campos", Toast.LENGTH_SHORT)
                     .show()
@@ -69,16 +57,17 @@ class LoginStartFragment : Fragment() {
         }
     }
 
-    private fun registerUser(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
+    private fun singInUser(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener() { task ->
                 if (task.isSuccessful) {
+                    findNavController().navigate(R.id.action_loginStartFragment2_to_fragmentHome)
                     Toast.makeText(context, "registro exitoso", Toast.LENGTH_SHORT).show()
 
                 } else {
                     Toast.makeText(
                         context,
-                        "error al registrar: ${task.exception?.message}",
+                        "el usuario no existe: ${task.exception?.message}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

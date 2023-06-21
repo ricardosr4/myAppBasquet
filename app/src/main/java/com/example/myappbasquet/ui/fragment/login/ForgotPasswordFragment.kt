@@ -5,20 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentForgotPasswordBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 
 class ForgotPasswordFragment : Fragment() {
     // TODO: Rename and change types of parameters
-    lateinit var binding: FragmentForgotPasswordBinding
+    private lateinit var binding: FragmentForgotPasswordBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
+        auth = FirebaseAuth.getInstance()
 
-        }
     }
 
     override fun onCreateView(
@@ -34,6 +37,21 @@ class ForgotPasswordFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.ivback.setOnClickListener {
             findNavController().navigate(R.id.action_forgotPasswordFragment_to_loginStartFragment2)
+        }
+        binding.btnForgotPassword.setOnClickListener {
+            if (binding.etForgotPassword.text.toString().isNotEmpty()){
+                resetPassword(binding.etForgotPassword.text.toString())
+            }
+        }
+    }
+    private fun resetPassword(email: String) {
+        auth.sendPasswordResetEmail(email).addOnCompleteListener() { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(context, "se envio un correo para restablecer la contraseña", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "no se pudo enviar el correo para restablecer la contraseña", Toast.LENGTH_SHORT).show()
+
+            }
         }
     }
 
