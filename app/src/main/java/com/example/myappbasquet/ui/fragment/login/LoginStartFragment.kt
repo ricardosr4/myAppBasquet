@@ -49,8 +49,7 @@ class LoginStartFragment : Fragment() {
 
         binding.btnAcceso.setOnClickListener {
 
-            if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty()) {
-                isValidEmail(binding.etEmail.text.toString())
+            if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty() && isValidEmail(binding.etEmail.text.toString())) {
                 singInUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
 
             } else {

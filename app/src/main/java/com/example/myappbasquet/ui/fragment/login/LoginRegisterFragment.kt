@@ -46,9 +46,9 @@ class LoginRegisterFragment : Fragment() {
         binding.btnRegister.setOnClickListener {
 
             if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString()
-                    .isNotEmpty()
+                    .isNotEmpty() && isValidEmail(binding.etEmail.text.toString())
             ) {
-                isValidEmail(binding.etEmail.text.toString(),)
+
                 registerUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
 
             } else {
