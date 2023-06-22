@@ -1,6 +1,7 @@
 package com.example.myappbasquet.ui.fragment.login
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -39,8 +40,10 @@ class ForgotPasswordFragment : Fragment() {
             findNavController().navigate(R.id.action_forgotPasswordFragment_to_loginStartFragment2)
         }
         binding.btnForgotPassword.setOnClickListener {
-            if (binding.etForgotPassword.text.toString().isNotEmpty()){
+            if (binding.etForgotPassword.text.toString().isNotEmpty() && isValidEmail(binding.etForgotPassword.text.toString())){
                 resetPassword(binding.etForgotPassword.text.toString())
+            }else{
+                Toast.makeText(context, "el correo no es valido o esta vacio", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -53,6 +56,11 @@ class ForgotPasswordFragment : Fragment() {
 
             }
         }
+    }
+    //todo esta funcion sirve para validar que sea un correo electronico valido.
+    private fun isValidEmail(email: String): Boolean {
+        val pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
     }
 
     companion object {

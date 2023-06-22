@@ -1,6 +1,7 @@
 package com.example.myappbasquet.ui.fragment.login
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,8 +49,9 @@ class LoginStartFragment : Fragment() {
 
         binding.btnAcceso.setOnClickListener {
 
-            if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty()) {
+            if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty() && isValidEmail(binding.etEmail.text.toString())) {
                 singInUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
+
             } else {
                 Toast.makeText(context, "por favor complete todos los campos", Toast.LENGTH_SHORT)
                     .show()
@@ -73,6 +75,11 @@ class LoginStartFragment : Fragment() {
                 }
             }
 
+    }
+    //todo esta funcion sirve para validar que sea un correo electronico valido.
+    private fun isValidEmail(email: String): Boolean {
+        val pattern = Patterns.EMAIL_ADDRESS
+        return pattern.matcher(email).matches()
     }
 
 
