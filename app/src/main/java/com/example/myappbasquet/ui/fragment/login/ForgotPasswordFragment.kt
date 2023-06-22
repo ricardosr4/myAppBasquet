@@ -40,9 +40,10 @@ class ForgotPasswordFragment : Fragment() {
             findNavController().navigate(R.id.action_forgotPasswordFragment_to_loginStartFragment2)
         }
         binding.btnForgotPassword.setOnClickListener {
-            if (binding.etForgotPassword.text.toString().isNotEmpty()){
-                isValidEmail(binding.etForgotPassword.text.toString())
+            if (binding.etForgotPassword.text.toString().isNotEmpty() && isValidEmail(binding.etForgotPassword.text.toString())){
                 resetPassword(binding.etForgotPassword.text.toString())
+            }else{
+                Toast.makeText(context, "el correo no es valido o esta vacio", Toast.LENGTH_SHORT).show()
             }
         }
     }

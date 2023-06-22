@@ -50,8 +50,9 @@ class LoginStartFragment : Fragment() {
         binding.btnAcceso.setOnClickListener {
 
             if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty()) {
+                isValidEmail(binding.etEmail.text.toString())
                 singInUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
-                isValidEmail(binding.etEmail.text.toString(),)
+
             } else {
                 Toast.makeText(context, "por favor complete todos los campos", Toast.LENGTH_SHORT)
                     .show()
