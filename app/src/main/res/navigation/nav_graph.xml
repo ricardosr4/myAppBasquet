@@ -11,13 +11,16 @@
         tools:layout="@layout/fragment_login_step_one" >
         <action
             android:id="@+id/action_loginStepOneFragment_to_loginRegisterFragment"
-            app:destination="@id/loginRegisterFragment" />
+            app:destination="@id/loginRegisterFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginStepOneFragment_to_loginStartFragment2"
-            app:destination="@id/loginStartFragment2" />
+            app:destination="@id/loginStartFragment2"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginStepOneFragment_to_fragmentHome"
-            app:destination="@id/fragmentHome" />
+            app:destination="@id/fragmentHome"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/loginRegisterFragment"
@@ -26,13 +29,16 @@
         tools:layout="@layout/fragment_login_register" >
         <action
             android:id="@+id/action_loginRegisterFragment_to_loginStepOneFragment"
-            app:destination="@id/loginStepOneFragment" />
+            app:destination="@id/loginStepOneFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginRegisterFragment_to_fragmentHome"
-            app:destination="@id/fragmentHome" />
+            app:destination="@id/fragmentHome"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginRegisterFragment_to_loginStartFragment2"
-            app:destination="@id/loginStartFragment2" />
+            app:destination="@id/loginStartFragment2"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -41,7 +47,8 @@
         tools:layout="@layout/fragment_forgot_password" >
         <action
             android:id="@+id/action_forgotPasswordFragment_to_loginStartFragment2"
-            app:destination="@id/loginStartFragment2" />
+            app:destination="@id/loginStartFragment2"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/loginStartFragment2"
@@ -50,26 +57,33 @@
         tools:layout="@layout/fragment_login_start" >
         <action
             android:id="@+id/action_loginStartFragment2_to_loginStepOneFragment"
-            app:destination="@id/loginStepOneFragment" />
+            app:destination="@id/loginStepOneFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginStartFragment2_to_forgotPasswordFragment"
-            app:destination="@id/forgotPasswordFragment" />
+            app:destination="@id/forgotPasswordFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginStartFragment2_to_fragmentHome"
-            app:destination="@id/fragmentHome" />
+            app:destination="@id/fragmentHome"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginStartFragment2_to_loginRegisterFragment"
-            app:destination="@id/loginRegisterFragment" />
+            app:destination="@id/loginRegisterFragment"
+            app:enterAnim="@android:anim/fade_in" />
         <action
             android:id="@+id/action_loginStartFragment2_to_loginRegisterFragment2"
-            app:destination="@id/loginRegisterFragment" />
+            app:destination="@id/loginRegisterFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <action
         android:id="@+id/ir_login"
-        app:destination="@id/loginStartFragment2" />
+        app:destination="@id/loginStartFragment2"
+        app:enterAnim="@android:anim/fade_in" />
     <action
         android:id="@+id/ir_registrar"
-        app:destination="@id/loginRegisterFragment" />
+        app:destination="@id/loginRegisterFragment"
+        app:enterAnim="@android:anim/fade_in" />
     <fragment
         android:id="@+id/fragmentHome"
         android:name="com.example.myappbasquet.ui.fragment.home.FragmentHome"
@@ -77,6 +91,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_fragmentHome_to_loginStepOneFragment"
-            app:destination="@id/loginStepOneFragment" />
+            app:destination="@id/loginStepOneFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
 </navigation>
