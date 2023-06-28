@@ -1,17 +1,31 @@
 package com.example.myappbasquet.ui.fragment.home
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.myappbasquet.core.extension.LiveResult
+import androidx.lifecycle.viewModelScope
 import com.example.myappbasquet.data.remote.model.MatchesEntry
 import com.example.myappbasquet.domain.usecase.get.MatchesRemoteUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel (
-    private val getMatchesRemoteUseCase : MatchesRemoteUseCase
-    ): ViewModel(){
-    val getMatchesLiveData = LiveResult<List<MatchesEntry>>()
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val getMatchesRemoteUseCase: MatchesRemoteUseCase) :
+    ViewModel() {
 
-    // esta funcion recibe el nombre de usuario de la vista y enviar este valor al caso de de uso
-    fun getMatches(user_name:String){
-        getMatchesRemoteUseCase.execute(liveData = getMatchesLiveData, params = user_name)
+    val matchesModel = MutableLiveData<MatchesEntry>()
+    val isloading = MutableLiveData<Boolean>()
+
+    fun getMatches(user_name: String) {
+        viewModelScope.launch {
+            isloading.postValue(true)
+            val result = getMatchesRemoteUseCase.getMatchesFire(user_name)
+            if (!result.isNullOrEmpty()) {
+                matchesModel.postValue(result[0])
+                isloading.postValue(false)
+            }
+        }
+
+
     }
 }

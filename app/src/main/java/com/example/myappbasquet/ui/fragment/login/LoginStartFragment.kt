@@ -64,7 +64,7 @@ class LoginStartFragment : Fragment() {
             .addOnCompleteListener() { task ->
                 if (task.isSuccessful) {
                     findNavController().navigate(R.id.action_loginStartFragment2_to_fragmentHome)
-                    Toast.makeText(context, "registro exitoso", Toast.LENGTH_SHORT).show()
+                  //  Toast.makeText(context, "registro exitoso", Toast.LENGTH_SHORT).show()
 
                 } else {
                     Toast.makeText(
