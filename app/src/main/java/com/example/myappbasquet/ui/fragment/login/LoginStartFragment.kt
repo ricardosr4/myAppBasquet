@@ -7,14 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentLoginStartBinding
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LoginStartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
+    private val dataStoreViewModel by viewModels<DataStoreViewModel>()
     lateinit var binding: FragmentLoginStartBinding
     private lateinit var auth: FirebaseAuth
 
@@ -50,6 +53,8 @@ class LoginStartFragment : Fragment() {
         binding.btnAcceso.setOnClickListener {
 
             if (binding.etEmail.text.toString().isNotEmpty() && binding.etPassword.text.toString().isNotEmpty() && isValidEmail(binding.etEmail.text.toString())) {
+
+
                 singInUser(binding.etEmail.text.toString(), binding.etPassword.text.toString())
 
             } else {
@@ -63,10 +68,12 @@ class LoginStartFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener() { task ->
                 if (task.isSuccessful) {
+                    saveValueSession("active")
                     findNavController().navigate(R.id.action_loginStartFragment2_to_fragmentHome)
-                    Toast.makeText(context, "registro exitoso", Toast.LENGTH_SHORT).show()
+                  //  Toast.makeText(context, "registro exitoso", Toast.LENGTH_SHORT).show()
 
                 } else {
+                    saveValueSession("inactive")
                     Toast.makeText(
                         context,
                         "el usuario no existe: ${task.exception?.message}",
@@ -76,6 +83,9 @@ class LoginStartFragment : Fragment() {
             }
 
     }
+
+    private  fun saveValueSession(valueLogin:String) { dataStoreViewModel.storeLoginActive(valueLogin) }
+
     //todo esta funcion sirve para validar que sea un correo electronico valido.
     private fun isValidEmail(email: String): Boolean {
         val pattern = Patterns.EMAIL_ADDRESS

@@ -1,24 +1,25 @@
 package com.example.myappbasquet.ui.fragment.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentHomeBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentHome : Fragment() {
+    private val matchesViewModel by viewModels<HomeViewModel>()
     lateinit var binding: FragmentHomeBinding
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,10 +32,35 @@ class FragmentHome : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // funcion que llama al viewmodel
+        matchesObserve()
+
         binding.ivback.setOnClickListener {
             findNavController().navigate(R.id.action_fragmentHome_to_loginStepOneFragment)
         }
+        binding.titleHome.setOnClickListener {
+            matchesObserve()
+        }
     }
+
+    // esta funcion llama al viewmodel para obtener los datos de firestore
+    @SuppressLint("SetTextI18n")
+    private fun matchesObserve() {
+        matchesViewModel.getMatches("Bryan_Hualpin")  // aqui me traigo los datos de firestore
+
+        // observe los datos que trae la funcion de arriba
+        matchesViewModel.matchesModel.observe(viewLifecycleOwner, Observer {
+
+            binding.titleHome.text = it.equipo_local + " vs " + it.equipo_visitante + " : " + it.resultado
+            binding.titleHome.visibility = View.VISIBLE
+
+        })
+        matchesViewModel.isloading.observe(viewLifecycleOwner, Observer {
+            binding.progressCircular.isVisible = it
+
+        })
+    }
+
 
     companion object {
 
