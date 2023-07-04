@@ -94,4 +94,8 @@
             app:destination="@id/loginStepOneFragment"
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
+    <action
+        android:id="@+id/action_global_fragmentHome"
+        app:destination="@id/fragmentHome"
+        app:enterAnim="@android:anim/fade_in" />
 </navigation>

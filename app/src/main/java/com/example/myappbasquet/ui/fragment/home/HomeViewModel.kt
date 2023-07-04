@@ -25,7 +25,5 @@ class HomeViewModel @Inject constructor(private val getMatchesRemoteUseCase: Mat
                 isloading.postValue(false)
             }
         }
-
-
     }
 }

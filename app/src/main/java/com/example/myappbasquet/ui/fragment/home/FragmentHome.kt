@@ -1,5 +1,6 @@
 package com.example.myappbasquet.ui.fragment.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,18 +44,15 @@ class FragmentHome : Fragment() {
     }
 
     // esta funcion llama al viewmodel para obtener los datos de firestore
+    @SuppressLint("SetTextI18n")
     private fun matchesObserve() {
-        matchesViewModel.getMatches("Bryan_Hualpin")
+        matchesViewModel.getMatches("Bryan_Hualpin")  // aqui me traigo los datos de firestore
+
+        // observe los datos que trae la funcion de arriba
         matchesViewModel.matchesModel.observe(viewLifecycleOwner, Observer {
 
-            binding.titleHome.text =
-                it.equipo_local + " vs " + it.equipo_visitante + " : " + it.resultado
+            binding.titleHome.text = it.equipo_local + " vs " + it.equipo_visitante + " : " + it.resultado
             binding.titleHome.visibility = View.VISIBLE
-            Toast.makeText(
-                requireContext(),
-                it.equipo_local + " vs " + it.equipo_visitante + " : " + it.resultado,
-                Toast.LENGTH_SHORT
-            ).show()
 
         })
         matchesViewModel.isloading.observe(viewLifecycleOwner, Observer {

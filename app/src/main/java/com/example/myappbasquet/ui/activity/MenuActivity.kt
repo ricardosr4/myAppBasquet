@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.myappbasquet.R
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
