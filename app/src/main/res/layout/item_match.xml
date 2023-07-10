@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        app:cardCornerRadius="25dp"
+        android:elevation="30dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/ivEquipoLocal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/ic_logo_equipo"/>
+
+        <TextView
+            android:id="@+id/titleCup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:text="@string/nacional"/>
+
+        <TextView
+            android:id="@+id/titleEquipos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="95dp"
+            android:layout_marginTop="66dp"
+            android:text="hualpin vs puente alto"/>
+
+
+        <ImageView
+            android:id="@+id/ivResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="320dp"
+            android:src="@drawable/ic_basquet_2" />
+
+        <TextView
+            android:id="@+id/tvResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="310dp"
+            android:layout_marginTop="66dp"
+            android:text="35 - 55"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#887575" />
+
+
+        <TextView
+            android:id="@+id/tvFechaEncuentro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="15/junio/2023"
+            android:layout_marginTop="110dp"
+            android:layout_marginStart="16dp"
+            android:textSize="17dp"/>
+
+        <TextView
+            android:id="@+id/tvInfo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/equipo_local"
+            android:layout_marginTop="140dp"/>
+
+        <TextView
+            android:id="@+id/tvInfo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/equipo_visitante"
+            android:layout_marginTop="160dp"/>
+
+        <TextView
+            android:id="@+id/tvInfo3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/resultado"
+            android:layout_marginTop="180dp"/>
+
+        <TextView
+            android:id="@+id/tvInfo4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:text="@string/equipo_local"
+            android:layout_marginTop="140dp"/>
+
+        <TextView
+            android:id="@+id/tvInfo5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:text="@string/equipo_visitante"
+            android:layout_marginTop="160dp"/>
+
+        <TextView
+            android:id="@+id/tvInfo6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="270dp"
+            android:text="@string/resultado"
+            android:layout_marginTop="180dp"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
