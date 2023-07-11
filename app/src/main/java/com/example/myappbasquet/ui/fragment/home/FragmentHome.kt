@@ -6,19 +6,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myappbasquet.R
 import com.example.myappbasquet.databinding.FragmentHomeBinding
+import com.example.myappbasquet.ui.adapter.MatchesAdapter
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class FragmentHome : Fragment() {
     private val matchesViewModel by viewModels<HomeViewModel>()
     lateinit var binding: FragmentHomeBinding
+
+    private lateinit var adapter: MatchesAdapter
+    private val matchesEntry = mutableListOf<String>()
 
 
     override fun onCreateView(
@@ -28,6 +35,8 @@ class FragmentHome : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,9 +44,6 @@ class FragmentHome : Fragment() {
         // funcion que llama al viewmodel
         matchesObserve()
 
-        binding.ivback.setOnClickListener {
-            findNavController().navigate(R.id.action_fragmentHome_to_loginStepOneFragment)
-        }
         binding.titleHome.setOnClickListener {
             matchesObserve()
         }
