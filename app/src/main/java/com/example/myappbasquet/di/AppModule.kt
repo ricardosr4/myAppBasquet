@@ -3,6 +3,7 @@ package com.example.myappbasquet.di
 import android.content.Context
 import com.example.myappbasquet.data.local.datastore.DataStoreImpl
 import com.example.myappbasquet.data.local.datastore.DataStoreRepo
+import com.example.myappbasquet.ui.adapter.MatchesAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,4 +18,5 @@ object AppModule {
     @Provides
     fun providesDataStore(@ApplicationContext context: Context): DataStoreRepo =
         DataStoreImpl(context)
+
 }
