@@ -65,7 +65,7 @@ class FragmentHome : Fragment() {
 
         // observe los datos que trae la funcion de arriba
         matchesViewModel.matchesModel.observe(viewLifecycleOwner, Observer {
-
+            matchList.clear()
             val matches: List<MatchesEntry> = it ?: emptyList()
             matchList.addAll(matches)
             matchesAdapter.notifyDataSetChanged()
