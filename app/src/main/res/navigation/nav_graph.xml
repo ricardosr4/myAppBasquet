@@ -93,9 +93,18 @@
             android:id="@+id/action_fragmentHome_to_loginStepOneFragment"
             app:destination="@id/loginStepOneFragment"
             app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentAudit"
+            app:destination="@id/fragmentAudit"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <action
         android:id="@+id/action_global_fragmentHome"
         app:destination="@id/fragmentHome"
         app:enterAnim="@android:anim/fade_in" />
+    <fragment
+        android:id="@+id/fragmentAudit"
+        android:name="com.example.myappbasquet.ui.fragment.home.FragmentAudit"
+        android:label="fragment_audit"
+        tools:layout="@layout/fragment_audit" />
 </navigation>

@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myappbasquet.R
 import com.example.myappbasquet.data.remote.model.MatchesEntry
@@ -45,6 +46,9 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // todo funcion que llama al viewmodel
         matchesObserve()
+        binding.floatingButtonAudit.setOnClickListener {
+            findNavController().navigate(R.id.action_fragmentHome_to_fragmentAudit)
+        }
 
     }
 
@@ -61,7 +65,7 @@ class FragmentHome : Fragment() {
 
         // observe los datos que trae la funcion de arriba
         matchesViewModel.matchesModel.observe(viewLifecycleOwner, Observer {
-
+            matchList.clear()
             val matches: List<MatchesEntry> = it ?: emptyList()
             matchList.addAll(matches)
             matchesAdapter.notifyDataSetChanged()
