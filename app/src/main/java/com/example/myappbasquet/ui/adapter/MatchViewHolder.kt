@@ -14,6 +14,7 @@ class MatchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bind(matchEntry: MatchesEntry,clickListener: (MatchesEntry, Int) -> Unit) {
         binding.titleEquipos.text = matchEntry.equipo_local + " vs " + matchEntry.equipo_visitante
         binding.titleEquipos.setOnClickListener { clickListener(matchEntry, R.id.titleEquipos) }
+        binding.ivEquipoLocal.setOnClickListener { clickListener(matchEntry, R.id.ivEquipoLocal) }
 
     }
 
