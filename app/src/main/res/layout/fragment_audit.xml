@@ -36,6 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
+        android:id="@+id/btn2PuntosLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2 puntos"
@@ -45,6 +46,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
+        android:id="@+id/btn3PuntosLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 puntos"
@@ -55,6 +57,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
+        android:id="@+id/btn1PuntoLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1  punto"
@@ -65,6 +68,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
+        android:id="@+id/btn2PuntosVisita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2 puntos"
@@ -74,6 +78,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
+        android:id="@+id/btn3PuntosVisita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3 puntos"
@@ -84,6 +89,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
+        android:id="@+id/btn1PuntoVisita"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1  punto"
@@ -104,11 +110,11 @@
         android:layout_marginTop="25dp"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
-        android:id="@+id/etResultadoLocal"
+    <TextView
+        android:id="@+id/tvResultadoLocal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="50"
+        android:text="0"
         android:textSize="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -149,11 +155,11 @@
         android:layout_marginTop="25dp"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
-        android:id="@+id/etResultadoVisitante"
+    <TextView
+        android:id="@+id/tvResultadoVisitante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="35"
+        android:text="0"
         android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

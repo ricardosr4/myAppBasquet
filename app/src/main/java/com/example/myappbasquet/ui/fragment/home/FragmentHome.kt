@@ -50,6 +50,7 @@ class FragmentHome : Fragment() {
             findNavController().navigate(R.id.action_fragmentHome_to_fragmentAudit)
         }
 
+
     }
 
     private fun initRecyclerView() {

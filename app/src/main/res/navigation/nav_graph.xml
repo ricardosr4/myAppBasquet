@@ -97,6 +97,9 @@
             android:id="@+id/action_fragmentHome_to_fragmentAudit"
             app:destination="@id/fragmentAudit"
             app:enterAnim="@android:anim/fade_in" />
+        <action
+            android:id="@+id/action_fragmentHome_to_loginStartFragment2"
+            app:destination="@id/loginStartFragment2" />
     </fragment>
     <action
         android:id="@+id/action_global_fragmentHome"
